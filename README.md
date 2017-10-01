@@ -17,7 +17,7 @@ The Face Recognition pre trained model is NOT mine and can be found in [Daviskin
 	Identifies Tom Cruise in Mission Impossible 4 (left picture) and in the his IMDB page (rigth, used to encode 
 	his face the first time).
 
-![Example1](https://raw.githubusercontent.com/RafaelRibeiro97/FaceRecognition/master/media/Example1.png?token=ARrZqHfbjnxZSnIEnZSg9R05PEdR2cSDks5Z2fxfwA%3D%3D)
+![Example1](https://raw.githubusercontent.com/RafaelRibeiro97/FaceRecognition/master/media/Example1.png)
 
 
 ### List the movies / series the detected actor have been together
@@ -27,14 +27,14 @@ The Face Recognition pre trained model is NOT mine and can be found in [Daviskin
 	Identifies Alexandra Daddario in Baywatch and lists the movies she's been in.
 :warning::exclamation: The names of the movies are in Portuguese - known issue - being fixed :exclamation::warning:
 
-![Example2](https://raw.githubusercontent.com/RafaelRibeiro97/FaceRecognition/master/media/Example2.PNG?token=ARrZqOHlPGZ-gxsF9bbwhuzaQ6V2c0E6ks5Z2fxOwA%3D%3D)
+![Example2](https://raw.githubusercontent.com/RafaelRibeiro97/FaceRecognition/master/media/Example2.PNG)
 
 #### Example 3 - Gal Gadot and Vin Diesel
 
 	Identifies Gal Gadot and Vin Diesel and lists the movies they've been in.
 :warning::exclamation: The names of the movies are in Portuguese - known issue - being fixed :exclamation::warning:
 
-![Example3](https://raw.githubusercontent.com/RafaelRibeiro97/FaceRecognition/master/media/Example3.PNG?token=ARrZqO02lPGeiS0fDze_o6AmL8FtR2QMks5Z2fwxwA%3D%3D)
+![Example3](https://raw.githubusercontent.com/RafaelRibeiro97/FaceRecognition/master/media/Example3.PNG)
 
 ### :warning::exclamation: The names of the movies are in Portuguese - known issue - being fixed :exclamation::warning:
 
