@@ -68,3 +68,8 @@ $ python IMDBActors.py
 #they have been together are listed in the terminal.
 $ python FaceDetection.py
 ```
+
+## Known issues
+	* The names of the movies are in Portuguese;
+	* When a face is detected but the reply from IMDB is not expected, the program crashes;
+
