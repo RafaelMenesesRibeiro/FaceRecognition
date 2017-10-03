@@ -65,10 +65,11 @@ def getActorID(actorName):
 	u = BASE_ID_URL + nameURL
 	response = requests.get(u)
 	respT = json.loads(response.text)
-	if respT == {}:
+	try:
+		actorID = respT['name_popular'][0]['id']
+		return actorID
+	except KeyError as e:
 		return -1
-	actorID = respT['name_popular'][0]['id']
-	return actorID
 
 def getActorsMovies(actorIDList):
 	actorsMovies = []
