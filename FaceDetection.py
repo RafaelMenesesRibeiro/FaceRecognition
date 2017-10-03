@@ -124,7 +124,7 @@ output:	<array(len(KPEOPLE))>			Distance between the detected face and
 '''
 def kFacesSimilarity(uEncoding):
 	if len(KPEOPLE) == 0:
-		return 9999
+		return [9999]
 	return [np.linalg.norm(person[1] - uEncoding) for person in KPEOPLE]
 
 '''
