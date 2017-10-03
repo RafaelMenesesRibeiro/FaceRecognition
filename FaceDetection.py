@@ -197,8 +197,9 @@ def main():
 				#For each face detected, indentifies it.
 				for (x, y, w, h) in facesDetected:
 					name = faceDD(imageRGB, x, y, w, h)
-					actorID = str(imdb.getActorID(name))
-					ids.append(actorID)
+					actorID = imdb.getActorID(name)
+					if actorID != -1:
+						ids.append(str(actorID))
 
 				if ids != previousActorList:
 					print('\n\n-------------------------------------------------\n')
