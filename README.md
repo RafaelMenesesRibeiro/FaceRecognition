@@ -71,5 +71,7 @@ $ python FaceDetection.py
 
 ## :warning::warning:Known issues
 	* The names of the movies are in Portuguese;
+
+## :heavy_check_mark::heavy_check_mark:Previously known issues - SHOULD be fixed now
 	* When a face is detected but the reply from IMDB is not expected, the program crashes;
 
