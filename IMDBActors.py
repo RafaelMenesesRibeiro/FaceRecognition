@@ -65,6 +65,8 @@ def getActorID(actorName):
 	u = BASE_ID_URL + nameURL
 	response = requests.get(u)
 	respT = json.loads(response.text)
+	if respT == {}:
+		return -1
 	actorID = respT['name_popular'][0]['id']
 	return actorID
 
@@ -91,7 +93,7 @@ http = urllib3.PoolManager()
 if __name__ == '__main__':
 	try:
 		currentDir = os.path.dirname(os.path.realpath(__file__))
-		PATH = os.path.join(currentDir, 'actors')
+		PATH = os.path.join(currentDir, 'Resources/KnownPeopleToEncode')
 		os.makedirs(PATH)
 	except OSError as e:
 		if e.errno != errno.EEXIST:
