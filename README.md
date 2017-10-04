@@ -45,8 +45,7 @@ The Face Recognition pre trained model is NOT mine and can be found in [Daviskin
 	* CSV				- Data storing and loading
 	* CV2				- Image rendering
 	* Dlib				- Face recognition
-	* urlib3			- Image download
-	* urlib.request			- Image download
+	* requests			- HTTP requests
 	* BeautifulSoup 		- Image download
 Download mss from [BoboTig's GitHub repository](https://github.com/BoboTiG/python-mss)
 	
