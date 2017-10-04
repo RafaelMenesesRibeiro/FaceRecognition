@@ -1,5 +1,4 @@
 import os, time, errno
-import urllib.request, urllib3
 import requests, json
 from bs4 import BeautifulSoup
 
@@ -32,8 +31,10 @@ def downloadActors():
 	for i in range(1, IMAGES_TO_DONWLOAD, 50):
 		url = BASE_URL.replace('&start=1', '&start={}'.format(i))
 		print('Downloading page {} of {}...'.format(int((i-1) / 50 + 1), int(IMAGES_TO_DONWLOAD/50)))
-		response = http.request('GET', url)
-		soup = BeautifulSoup(response.data, 'lxml')
+		
+		page = requests.get(url)
+		content = page.content
+		soup = BeautifulSoup(content, 'lxml')
 		table = soup.find('table', attrs={'class':'results'})
 		t = time.time()
 		for row in table.find_all("tr")[1:]:
@@ -51,7 +52,9 @@ def downloadActors():
 			#Download the actor's image.
 			try:
 				localPath = os.path.join(PATH, '{}.jpg'.format(actorName))
-				urllib.request.urlretrieve(url, localPath)
+				response = requests.get(url)
+				with open(localPath, 'wb') as code:
+					code.write(response.content)
 				count += 1
 			except:
 				print('Couldn\'t save image.')
@@ -62,11 +65,11 @@ def downloadActors():
 
 def getActorID(actorName):
 	nameURL = actorName.replace(' ', '+')
-	u = BASE_ID_URL + nameURL
-	response = requests.get(u)
-	respT = json.loads(response.text)
+	url = BASE_ID_URL + nameURL
+	response = requests.get(url)
+	responseText = json.loads(response.text)
 	try:
-		actorID = respT['name_popular'][0]['id']
+		actorID = responseText['name_popular'][0]['id']
 		return actorID
 	except KeyError as e:
 		return -1
@@ -74,8 +77,9 @@ def getActorID(actorName):
 def getActorsMovies(actorIDList):
 	actorsMovies = []
 	url = MOVIE_COLABORATION_URL + ','.join(actorIDList)
-	response = http.request('GET', url)
-	soup = BeautifulSoup(response.data, 'lxml')
+	response = requests.get(url)
+	content = response.content
+	soup = BeautifulSoup(content, 'lxml')
 	movieList = soup.find('div', attrs={'class':'lister-list'})
 	h3s = movieList.find_all('h3')
 	for i in h3s:
@@ -90,7 +94,6 @@ def getActorsMovies(actorIDList):
 	#CODE EXECUTION
 
 #-------------------------------------------------------------------------------
-http = urllib3.PoolManager()
 if __name__ == '__main__':
 	try:
 		currentDir = os.path.dirname(os.path.realpath(__file__))
@@ -101,6 +104,4 @@ if __name__ == '__main__':
 			print('Could not create folder in where to store the images.')
 			print('Create a folder with the name "actors" in the directory of the script file.')
 			raise
-	
-	http = urllib3.PoolManager()
 	downloadActors();
