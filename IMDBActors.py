@@ -77,8 +77,11 @@ def getActorID(actorName):
 def getActorsMovies(actorIDList):
 	actorsMovies = []
 	url = MOVIE_COLABORATION_URL + ','.join(actorIDList)
-	response = requests.get(url)
+	
+	headers = {"Accept-Language": "en-US,en;q=0.5"}
+	response = requests.get(url, headers=headers)
 	content = response.content
+	
 	soup = BeautifulSoup(content, 'lxml')
 	movieList = soup.find('div', attrs={'class':'lister-list'})
 	h3s = movieList.find_all('h3')
@@ -105,3 +108,5 @@ if __name__ == '__main__':
 			print('Create a folder with the name "actors" in the directory of the script file.')
 			raise
 	downloadActors();
+	
+	
